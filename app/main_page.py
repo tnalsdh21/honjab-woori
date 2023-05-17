@@ -4,7 +4,9 @@ import os
 
 _abspath = os.path.dirname(os.path.abspath(__file__))+'/../data/'
 
-st.header('메인페이지')
+st.header('9호선 혼잡으로 인한 안전 문제')
+st.write('')
+
 image_path1 = _abspath + 'news1.png'
 image_path2 = _abspath + 'news2.png'
 image_path3 = _abspath + 'news3.png'

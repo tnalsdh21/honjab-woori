@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import FinanceDataReader as fdr
+# import FinanceDataReader as fdr
 import datetime
 import matplotlib.pyplot as plt
 import numpy as np
@@ -10,11 +10,14 @@ import plotly.graph_objects as go
 import pandas as pd
 import pydeck as pdk
 import math
+import os 
 
 st.title('9호선 시간대별 혼잡도(2020)')
 
-df = pd.read_csv('9_honjab2020.csv', encoding='utf-8')
-pos = pd.read_csv('9_position.csv', encoding='utf-8')
+folder = os.path.dirname(os.path.abspath(__file__))+'/../../data/'
+
+df = pd.read_csv(folder + '9_honjab2020.csv', encoding='utf-8')
+pos = pd.read_csv(folder + '9_position.csv', encoding='utf-8')
 df.columns=['idx', '구분']+list(map(str, list(range(0,37,1))))
 
 pos.columns=['idx','역명','수도권','위도','경도','선명']
@@ -66,7 +69,6 @@ st.write(
 # tmp['위도']=df_sor['위도']
 # tmp[f'{arr_.index(time)}']=df_sor[f'{arr_.index(time)}']
 
-
 # tmp=df_sor[[f'{arr_.index(time)}', '경도', '위도']]
 st.pydeck_chart(pdk.Deck(
     map_style=None,
@@ -92,15 +94,15 @@ st.pydeck_chart(pdk.Deck(
             stroked=True,
             filled=True,
         ),
-        # pdk.Layer(
-        #     'ScatterplotLayer',
-        #     data=df_sor,
-        #     get_position='[경도, 위도]',
-        #     radius='exits_radius',
-        #     get_fill_color='[0, 0, 0]',
-        #     pickable=True,
-        #     extruded=True,
-        # ),
+        pdk.Layer(
+            'ScatterplotLayer',
+            data=df_sor,
+            get_position='[경도, 위도]',
+            radius='exits_radius',
+            get_fill_color='[0, 0, 0]',
+            pickable=True,
+            extruded=True,
+        ),
     ],
 ))
 
@@ -130,7 +132,7 @@ st.pydeck_chart(pdk.Deck(
             pickable=True,
             opacity=0.8,
             stroked=True,
-            filled=True,
+            filled=True
         ),
     ],
 ))

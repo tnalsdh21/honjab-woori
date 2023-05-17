@@ -24,6 +24,8 @@ def find_time(timeline):
     return '09:00~09:29'
   elif timeline=='09:30':
     return '09:30~09:59'
+  elif timeline=='10:00':
+    return '10:00~10:29'
   elif timeline=='10:30':
     return '10:30~10:59'
   elif timeline=='11:00':
@@ -99,7 +101,7 @@ def draw_graph(temp) :
           pitch=50,
       ),
       tooltip={
-        'html': '{hon.구분}<b>혼잡도:</b> {elevationValue}',
+        'html': '<b>혼잡도:</b> {elevationValue}',
         'style':{
           'color':'white'
         }
@@ -132,9 +134,9 @@ def show_table(temp):
   st.table(temp)
 
 
-folder = '/../../data/'
-position_path = os.path.dirname(os.path.abspath(__file__))+folder+'9_position.csv'
-h_2020_path = os.path.dirname(os.path.abspath(__file__))+folder+'9_honjab2020.csv'
+folder = os.path.dirname(os.path.abspath(__file__))+'/../../data/'
+position_path = folder+'9_position.csv'
+h_2020_path = folder+'9_honjab2020.csv'
 position_cols = ['name', 'position', 'lat', 'lon','line']
 position_9 = pd.read_csv(position_path, index_col=0, names=position_cols)
 position_9['name'] = position_9['name'].str.replace(pat='역',repl='', regex=True)
