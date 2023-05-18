@@ -1,6 +1,5 @@
 streamlit
 numpy
 pandas==1.5.3
-finance-data
 matplotlib
 plotly
