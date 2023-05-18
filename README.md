@@ -11,7 +11,7 @@ __데이터__
 
 
 <div align='center'>
-  🧑‍💻Languages🧑‍💻
+  <div>🧑‍💻Languages🧑‍💻</div>
   <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=Python&logoColor=white"/>
   <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=Streamlit&logoColor=white"/>
 </div>
